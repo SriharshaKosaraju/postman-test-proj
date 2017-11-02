@@ -1,0 +1,102 @@
+{
+	"info": {
+		"name": "Dev Mission Control",
+		"_postman_id": "9f0bbba7-a384-7b11-ce72-2dbdac81a869",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://azu-dapigate01:8484/mc/auth-authorize?userName=u755654&password=SrKo2017",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"u755654\",\n\t\"password\":\"SrKo2017\"\n}"
+				},
+				"url": {
+					"raw": "https://azu-dapigate01:8484/mc/auth-authorize",
+					"protocol": "https",
+					"host": [
+						"azu-dapigate01"
+					],
+					"port": "8484",
+					"path": [
+						"mc",
+						"auth-authorize"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://azu-dapigate01:8484/mc/update-sku-properties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status should be success\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"skusList\":[\"34600TW1\",\"41652716\"],\n\t\"launchProduct\":true,\n\t\"riskified\":false,\n\t\"definedTimeForCountDown\":\"03-31-2018 09:00:00\",\n\t\"pdpActivationDate\":\"04-30-2018 09:00:00\",\n\t\"skuLaunchDate\":\"02-19-2018 09:00:00\",\n\t\"shipToAndFromStore\":false,\n\t\"displayCountDownTimer\":false,\n\t\"recaptchaOn\":false\n}"
+				},
+				"url": {
+					"raw": "https://azu-dapigate01:8484/mc/update-sku-properties",
+					"protocol": "https",
+					"host": [
+						"azu-dapigate01"
+					],
+					"port": "8484",
+					"path": [
+						"mc",
+						"update-sku-properties"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

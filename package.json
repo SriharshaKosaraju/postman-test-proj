@@ -1,0 +1,12 @@
+{
+  "name": "mc-test-suit",
+  "version": "1.0.0",
+  "description": "Tests for mission control",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "mc-test-dev": "newman run tessts/DevMissionControl.postman_collection.json"
+  },
+  "author": "Sriharsha Kosaraju",
+}
